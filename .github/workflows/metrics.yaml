@@ -1,0 +1,89 @@
+name: Vinay Sharma GitHub Metrics
+on:
+  # Schedule auto-updates 4 times daily to keep date current
+  schedule:
+    - cron: "30 18 * * *" # 12:00 AM IST (Night - Date change)
+  # Manual trigger
+  workflow_dispatch:
+  # Auto-trigger on any push to main (immediate updates)
+  push:
+    branches: ["main"]
+
+jobs:
+  vinay-github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Generate GitHub Metrics for Vinay Kumar (@vinayakumar)
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: vinaysharma1987
+          template: classic
+          base: header, community, repositories, metadata
+          filename: vinay-kumar-metrics.svg
+          config_timezone: Asia/Kolkata
+          config_output: svg
+
+          # === VINAY KUMAR'S STUNNING 3D VISUAL GITHUB METRICS ===
+
+          # 📅 3D Isometric contributions calendar - Beautiful 3D cubes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          
+          #  Languages with stunning 3D charts and detailed visuals
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_limit: 12
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_threshold: 0%
+          plugin_languages_details: bytes-size, percentage, lines
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: rainbow
+          plugin_languages_indepth: yes
+          
+          # ⭐ Advanced stargazers with beautiful charts and world map
+          plugin_stargazers: yes
+          plugin_stargazers_charts: yes
+          plugin_stargazers_charts_type: classic
+          plugin_stargazers_worldmap: yes
+          plugin_stargazers_worldmap_token: ${{ secrets.GOOGLE_MAP_TOKEN }}
+          
+          # 👥 Followers with enhanced avatar display
+          plugin_followers: yes
+          plugin_followers_identicons: yes
+          
+          # � Habits and coding patterns visualization
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_trim: yes
+          
+          # � Live Calendar - Always shows today's date (updates 4x daily)
+          plugin_calendar: yes
+          plugin_calendar_limit: 1
+          
+          # 🎯 Traffic and engagement metrics
+          plugin_traffic: yes
+          
+          # 🌍 Geographic contributions map
+          plugin_people: yes
+          plugin_people_limit: 24
+          plugin_people_identicons: yes
+          plugin_people_types: followers, following
+          
+          # 📦 Repository traffic and analytics with featured repos
+          plugin_repositories: yes
+          plugin_repositories_order: featured, pinned, starred, random
+          plugin_repositories_forks: yes
+          plugin_repositories_affiliations: owner
+          plugin_repositories_featured: codewithgarry/codewithgarry
+          
+          # 🌟 Add specific repositories showcase
+          plugin_topics: yes
+          plugin_topics_mode: starred
+          plugin_topics_limit: 15
